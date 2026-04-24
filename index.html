@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo Tech</title>
+<link rel="icon" href="logo.png">
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f4f6f9;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 30px;
+    background: #0f172a;
+    color: white;
+}
+
+/* CONTENEDOR */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 30px;
+}
+
+/* TARJETA PRODUCTO */
+.product {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    align-items: center;
+}
+
+/* GALERÍA */
+.gallery {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* CONTENEDOR DE IMAGEN */
+.image-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+/* IMAGEN PRINCIPAL */
+.main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* MINIATURAS */
+.thumbs {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.thumbs img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.thumbs img:hover {
+    transform: scale(1.08);
+}
+
+.thumbs img.active {
+    border: 2px solid #22c55e;
+}
+
+/* INFO */
+.info {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.info p {
+    font-size: 20px;
+    color: #000000;
+}
+
+.info ul {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* BOTÓN WHATSAPP */
+.btn-wsp {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 16px 0px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.2s;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-wsp:hover {
+    background: #1ebe5d;
+    transform: scale(1.05);
+}
+
+/* INTRO */
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 1s ease forwards;
+    animation-delay: 2s;
+}
+
+#intro h1 {
+    color: white;
+    font-size: 48px;
+    letter-spacing: 2px;
+    animation: zoom 2s ease;
+}
+
+/* ANIMACIONES */
+@keyframes zoom {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .product {
+        flex-direction: column;
+    }
+
+    .gallery,
+    .info {
+        width: 100%;
+    }
+
+    .info h2 {
+        font-size: 26px;
+    }
+
+    .thumbs img {
+        width: 80px;
+        height: 80px;
+    }
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: #0f172a;
+    color: white;
+}
+
+/* LOGO */
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.logo:hover {
+    opacity: 0.7;
+}
+
+.navbar {
+    justify-content: space-between;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+.subtitle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">BlackWatt Labs</a>
+    <p class="subtitle">Accesorios premium</p>
+        <div class="nav-links">
+        <a href="info.html">Sobre nosotros</a>
+    </div>
+</header>
+<div class="container">
+
+    <!-- PRODUCTO 1 -->
+    <div class="product">
+        <div class="gallery">
+            <div class="image-box">
+                <img id="main1" src="cablee.png" class="main-img">
+            </div>
+
+            <div class="thumbs">
+                <img src="cablee.png" class="active" onclick="changeImage('main1', this)">
+                <img src="cable2.webp" onclick="changeImage('main1', this)">
+                <img src="cable3.png" onclick="changeImage('main1', this)">
+            </div>
+        </div>
+
+        <div class="info">
+            <h2>Cable USB 3.1 Tipo A a Tipo C</h2>
+            <p>Alta velocidad y carga rápida.</p>
+            <ul>
+                <li>5 Gbps</li>
+                <li>2 metros</li>
+                <li>Material resistente</li>
+            </ul>
+                <a href="#" 
+                class="btn-wsp" 
+                data-producto="Cable USB 3.1 Tipo A a Tipo C"
+                onclick="sendWhatsApp(this)">
+                Más información
+                </a>
+            </button>
+        </div>
+    </div>
+
+    <!-- PRODUCTO 2 -->
+    <div class="product">
+        <div class="gallery">
+            <div class="image-box">
+            <img id="main2" src="adaptador.jpg" class="main-img">
+            </div>
+
+            <div class="thumbs">
+                <img src="adaptador.jpg" class="active" onclick="changeImage('main2', this)">
+                <img src="adaptador5 2.jpg" onclick="changeImage('main2', this)">
+                <img src="adaptador3.png" onclick="changeImage('main2', this)">
+            </div>
+        </div>
+
+        <div class="info">
+            <h2>Adaptador OTG USB 3.0 a USB Tipo-C</h2>
+            <p>Conectá dispositivos USB fácilmente.</p>
+            <ul>
+                <li>USB 3.0 (5 Gbps)</li>
+                <li>Soporte OTG</li>
+                <li>Alta durabilidad</li>
+            </ul>
+                <a href="#" 
+                class="btn-wsp" 
+                data-producto="Adaptador OTG USB 3.0 a USB Tipo-C"
+                onclick="sendWhatsApp(this)">
+                Más información
+                </a>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+ <script>
+function sendWhatsApp(element) {
+    let producto = element.getAttribute("data-producto");
+
+    let mensaje = `Hola, vi el ${producto} en tu página y quiero más información`;
+
+    let url = "https://wa.me/5491133502856?text=" + encodeURIComponent(mensaje);
+
+    window.open(url, "_blank");
+}
+</script>v
+<script>
+function changeImage(mainId, element) {
+    let main = document.getElementById(mainId);
+
+    // cambiar imagen principal
+    main.src = element.src;
+
+    // sacar active de todas
+    let thumbs = element.parentElement.querySelectorAll("img");
+    thumbs.forEach(img => img.classList.remove("active"));
+
+    // marcar la seleccionada
+    element.classList.add("active");
+}
+</script>
+<script>
+setTimeout(() => {
+    const intro = document.getElementById("intro");
+    if (intro) intro.remove();
+}, 3000);
+</script>
+</body>
+<div id="intro">
+    <h1>BlackWatt Labs</h1>
+</div>
+</html> 
